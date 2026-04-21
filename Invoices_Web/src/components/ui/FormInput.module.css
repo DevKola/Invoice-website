@@ -1,0 +1,6 @@
+.input:focus,
+.input:focus-visible,
+.input:focus-within {
+    border-color: var(--mantine-color-primary-0) !important;
+}
+

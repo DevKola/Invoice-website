@@ -1,0 +1,25 @@
+.input:focus,
+.input:focus-visible,
+.input:focus-within {
+    border-color: var(--mantine-color-primary-0) !important;
+}
+
+.input:hover{
+    border-color: var(--mantine-color-primary-0) !important;
+}
+
+.day:hover,
+.day[data-combobox-active] {
+    color: var(--mantine-color-primary-0) !important;
+    background-color: var(--mantine-color-darkSecondary-0) !important;
+}
+
+.day:focus {
+    color: var(--mantine-color-primary-0) !important;
+    background-color: var(--mantine-color-darkSecondary-0) !important;
+}
+
+
+.datePickerRoot {
+    background-color: var(--mantine-color-primary-0) !important;
+}
