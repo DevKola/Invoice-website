@@ -1,0 +1,303 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.stateCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 220px;
+  padding: 32px;
+  border-radius: 8px;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.backIcon {
+  width: 7px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.statusBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 24px;
+  border-radius: 8px;
+}
+
+.statusMeta {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 20px;
+}
+
+@media (max-width: 740px) {
+  .statusMeta {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actionButton {
+  height: 48px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 24px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.invoiceCard {
+  padding: 48px;
+  border-radius: 8px;
+}
+
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.invoiceIdentity {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.senderAddress {
+  text-align: right;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(140px, 1fr) minmax(
+      160px,
+      1fr
+    );
+  grid-template-areas:
+    "invoiceDate billTo sentTo"
+    "paymentDue billTo sentTo";
+  column-gap: 32px;
+  row-gap: 32px;
+  margin: 24px 0 48px;
+}
+
+.invoiceDate {
+  grid-area: invoiceDate;
+}
+
+.paymentDue {
+  grid-area: paymentDue;
+}
+
+.billTo {
+  grid-area: billTo;
+}
+
+.sentTo {
+  grid-area: sentTo;
+}
+
+.detailBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stackedCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.itemsPanel {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.itemsContent {
+  padding: 32px;
+}
+
+.itemsHeader,
+.itemRow {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 48px 96px 96px;
+  gap: 16px;
+  align-items: center;
+}
+
+.itemsHeader {
+  margin-bottom: 32px;
+}
+
+.itemsHeaderRight,
+.itemRowRight {
+  text-align: right;
+}
+
+.itemRow + .itemRow {
+  margin-top: 32px;
+}
+
+.amountFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 32px;
+}
+
+.deleteModalContent {
+  border-radius: 8px;
+}
+
+.deleteModalBody {
+  padding: 48px;
+}
+
+.deleteModalStack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.deleteModalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .invoiceCard {
+    padding: 32px;
+  }
+}
+
+.mobileActions {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    gap: 16px;
+    padding-bottom: 80px;
+  }
+
+  .statusBar {
+    padding: 20px 24px;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .mobileActions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 24px;
+    z-index: 100;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .invoiceCard {
+    padding: 24px;
+  }
+
+  .topRow {
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .senderAddress {
+    text-align: left;
+  }
+
+  .detailsGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "invoiceDate billTo"
+      "paymentDue billTo"
+      "sentTo sentTo";
+    row-gap: 32px;
+    margin: 0 0 40px;
+  }
+
+  .itemsContent {
+    padding: 24px;
+  }
+
+  .itemsHeader {
+    display: none;
+  }
+
+  .itemRow {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "name total"
+      "meta total";
+    row-gap: 8px;
+  }
+
+  .itemName {
+    grid-area: name;
+  }
+
+  .itemMeta {
+    grid-area: meta;
+  }
+
+  .itemTotal {
+    grid-area: total;
+    align-self: center;
+  }
+
+  .itemHideMobile {
+    display: none;
+  }
+
+  .amountFooter {
+    padding: 24px;
+  }
+
+  .deleteModalBody {
+    padding: 32px;
+  }
+}

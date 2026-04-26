@@ -1,0 +1,71 @@
+.card {
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.code {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.client {
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.middleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.due {
+  font-size: 42px;
+  line-height: 1;
+}
+
+.bottomRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.amount {
+  font-size: 52px;
+  line-height: 1;
+}
+
+.status {
+  transform: scale(1.45);
+  transform-origin: center right;
+}
+
+@media (max-width: 640px) {
+  .code {
+    font-size: 34px;
+  }
+
+  .client {
+    font-size: 40px;
+  }
+
+  .due {
+    font-size: 50px;
+  }
+
+  .amount {
+    font-size: 52px;
+  }
+}

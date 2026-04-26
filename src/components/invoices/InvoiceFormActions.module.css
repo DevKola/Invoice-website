@@ -1,0 +1,38 @@
+.actionsBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 56px;
+}
+
+.actionsBarLight {
+  background-color: var(--mantine-color-light-0);
+  border-top: 1px solid var(--mantine-color-lightBg-0);
+}
+
+.actionsBarDark {
+  background-color: var(--mantine-color-darkCard-0);
+  border-top: 1px solid var(--mantine-color-darkSecondary-0);
+}
+
+.rightActions {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .actionsBar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 220;
+    padding: 20px 24px 24px;
+  }
+
+  .rightActions {
+    flex: 1;
+    justify-content: flex-end;
+  }
+}

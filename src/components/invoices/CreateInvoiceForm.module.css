@@ -1,0 +1,154 @@
+.drawerContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.scrollArea {
+  flex: 1;
+  padding: 56px 56px 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 20px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.backIcon {
+  width: 7px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.sectionTitle {
+  margin-bottom: 8px;
+}
+
+.groupLabel {
+  margin-bottom: 0;
+}
+
+.threeCol,
+.twoCol {
+  display: grid;
+  gap: 16px;
+}
+
+.threeCol {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.twoCol {
+  grid-template-columns: 1fr 1fr;
+}
+
+.itemsHeader {
+  display: grid;
+  grid-template-columns: 1.6fr 0.5fr 0.8fr 0.8fr;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.itemRow {
+  display: grid;
+  grid-template-columns: 1.6fr 0.5fr 0.8fr 0.8fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.itemTotalCell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 48px;
+}
+
+.deleteItemButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.deleteItemButton img {
+  width: 12px;
+  height: 16px;
+}
+
+.pillButton {
+  height: 48px;
+  border-radius: 24px;
+  padding: 0 24px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .scrollArea {
+    padding: 32px 24px 70px;
+  }
+
+  .threeCol {
+    grid-template-columns: 1fr;
+  }
+
+  .twoCol {
+    grid-template-columns: 1fr;
+  }
+
+  .itemsHeader {
+    display: none;
+  }
+
+  .itemRow {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+
+  .itemRow > :first-child {
+    grid-column: 1 / -1;
+  }
+
+  .itemTotalCell {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 769px) {
+  .backButton {
+    display: flex;
+    align-items: center;
+  }
+}

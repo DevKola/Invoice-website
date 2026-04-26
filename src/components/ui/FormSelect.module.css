@@ -1,0 +1,20 @@
+.input:focus,
+.input:focus-visible,
+.input:focus-within {
+    border-color: var(--mantine-color-primary-0) !important;
+}
+
+.input:hover{
+    border-color: var(--mantine-color-primary-0) !important;
+}
+
+.option:hover,
+.option[data-combobox-active] {
+    color: var(--mantine-color-primary-0) !important;
+    background-color: transparent !important;
+}
+
+.option {
+    border-bottom: 1px solid var(--mantine-color-lightText-0) !important;
+    padding-bottom: 20px;
+}

@@ -1,0 +1,166 @@
+.header {
+  gap: 24px;
+}
+
+.leftBlock {
+  min-width: 0;
+}
+
+.title {
+  line-height: 1;
+}
+
+.subtitle {
+  line-height: 1.2;
+}
+
+.actions {
+  flex-shrink: 0;
+}
+
+.filterTrigger {
+  cursor: pointer;
+  user-select: none;
+}
+
+.filterLabel {
+  white-space: nowrap;
+}
+
+.filterIcon,
+.filterIconOpen {
+  transition: transform 200ms ease;
+}
+
+.filterIconOpen {
+  transform: rotate(180deg);
+}
+
+.desktopOnly {
+  display: inline;
+}
+
+.mobileOnly {
+  display: none;
+  fontsize: 15px;
+  font-weight: 700;
+}
+
+.desktopButton {
+  display: block;
+}
+
+.mobileNewButton {
+  display: none;
+}
+
+/* Dark mode styles */
+.checkboxDark :global(.mantine-Checkbox-input) {
+  background-color: #373b53;
+  border: 2px solid #373b53;
+  cursor: pointer;
+}
+
+.checkboxDark :global(.mantine-Checkbox-input:checked) {
+  background-color: #7c5dfa;
+  border-color: #7c5dfa;
+}
+
+.checkboxDark :global(.mantine-Checkbox-input:focus) {
+  border-color: #7c5dfa;
+}
+
+/* Light mode styles */
+.checkboxLight :global(.mantine-Checkbox-input) {
+  background-color: #f8f8fb;
+  border: 2px solid #e0e0e0;
+  cursor: pointer;
+}
+
+.checkboxLight :global(.mantine-Checkbox-input:checked) {
+  background-color: #7c5dfa;
+  border-color: #7c5dfa;
+}
+
+.checkboxLight :global(.mantine-Checkbox-input:focus) {
+  border-color: #7c5dfa;
+}
+
+.checkboxLabel {
+  color: inherit;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .header {
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .title {
+    font-size: clamp(2.2rem, 5.8vw, 3.2rem);
+    letter-spacing: -0.04em;
+  }
+
+  .subtitle {
+    font-size: clamp(1.1rem, 3.2vw, 1.8rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .actions {
+    gap: 20px;
+    align-items: center;
+  }
+
+  .filterTrigger {
+    gap: 10px;
+  }
+
+  .filterLabel {
+    font-size: clamp(1.2rem, 3.4vw, 1.9rem);
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  .mobileOnly {
+    display: inline;
+  }
+
+  .desktopButton {
+    display: none;
+  }
+
+  .mobileNewButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    border: 0;
+    border-radius: 999px;
+    height: 78px;
+    cursor: pointer;
+  }
+
+  .mobileNewIcon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .mobileNewText {
+    color: #fff;
+    font-size: clamp(1.4rem, 3.8vw, 2rem);
+    font-weight: 700;
+    line-height: 1;
+  }
+}

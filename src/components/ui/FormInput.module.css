@@ -1,0 +1,14 @@
+.input:focus,
+.input:focus-visible,
+.input:focus-within {
+  border-color: var(--mantine-color-primary-0) !important;
+}
+
+.input::placeholder {
+  color: var(
+    --form-input-placeholder-color,
+    var(--mantine-color-lightText-0)
+  ) !important;
+  font-weight: 400;
+  opacity: 1;
+}
