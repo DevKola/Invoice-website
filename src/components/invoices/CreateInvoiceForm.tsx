@@ -36,6 +36,65 @@ function createDefaultInvoiceFormValues(): CreateInvoiceFormValues {
   };
 }
 
+function validateCreateInvoiceForSubmit(values: CreateInvoiceFormValues) {
+  const errors: Record<string, string> = {};
+
+  const requiredFields: Array<{ key: keyof CreateInvoiceFormValues; message: string }> = [
+    { key: "billFromStreet", message: "can't be empty" },
+    { key: "billFromCity", message: "can't be empty" },
+    { key: "billFromPostCode", message: "can't be empty" },
+    { key: "billFromCountry", message: "can't be empty" },
+    { key: "clientName", message: "can't be empty" },
+    { key: "billToStreet", message: "can't be empty" },
+    { key: "billToCity", message: "can't be empty" },
+    { key: "billToPostCode", message: "can't be empty" },
+    { key: "billToCountry", message: "can't be empty" },
+    { key: "projectDescription", message: "can't be empty" },
+  ];
+
+  requiredFields.forEach(({ key, message }) => {
+    const value = values[key];
+
+    if (typeof value === "string" && value.trim().length === 0) {
+      errors[key] = message;
+    }
+  });
+
+  const trimmedClientEmail = values.clientEmail.trim();
+  if (!trimmedClientEmail) {
+    errors.clientEmail = "can't be empty";
+  } else {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmedClientEmail)) {
+      errors.clientEmail = "invalid email";
+    }
+  }
+
+  if (!values.invoiceDate) {
+    errors.invoiceDate = "can't be empty";
+  }
+
+  if (!values.paymentTerms) {
+    errors.paymentTerms = "can't be empty";
+  }
+
+  values.items.forEach((item, index) => {
+    if (!item.name.trim()) {
+      errors[`items.${index}.name`] = "can't be empty";
+    }
+
+    if (!item.quantity.trim()) {
+      errors[`items.${index}.quantity`] = "can't be empty";
+    }
+
+    if (!item.price.trim()) {
+      errors[`items.${index}.price`] = "can't be empty";
+    }
+  });
+
+  return errors;
+}
+
 
 function CreateInvoiceForm({
   opened,
@@ -68,7 +127,14 @@ function CreateInvoiceForm({
   }, [initialValues, opened]);
 
   function handleSaveAndSend() {
-    form.onSubmit((values) => onSubmit(values))();
+    const errors = validateCreateInvoiceForSubmit(form.values);
+    form.setErrors(errors);
+
+    if (Object.keys(errors).length > 0) {
+      return;
+    }
+
+    onSubmit(form.values);
   }
 
   function handleAddNewItem() {
@@ -113,7 +179,10 @@ function CreateInvoiceForm({
     >
       <div className={styles.drawerContent}>
         <ScrollArea className={styles.scrollArea}>
-          <form className={styles.form} onSubmit={form.onSubmit((values) => onSubmit(values))}>
+          <form className={styles.form} onSubmit={(event) => {
+            event.preventDefault();
+            handleSaveAndSend();
+          }}>
             {isMobile ? (
               <button type="button" onClick={onClose} className={styles.backButton}>
                 <img src="/assets/icon-arrow-left.svg" alt="" className={styles.backIcon} />
